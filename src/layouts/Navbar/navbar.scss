@@ -1,0 +1,119 @@
+.navbar__wrapper {
+   width: 100%;
+   height: 80px;
+   background: var(--blue);
+   box-shadow: 0 0 12px var(--black);
+   position: relative;
+   z-index: 9;
+
+   .navbar-inner__wrapper {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .logo__wrapper {
+         display: flex;
+         align-items: center;
+         gap: 8px;
+         cursor: pointer;
+
+         img {
+            width: 48px;
+            height: auto;
+         }
+
+         span {
+            font-weight: 600;
+            color: var(--white);
+         }
+      }
+
+      .lang__block {
+         height: 100%;
+         display: flex;
+         align-items: center;
+         position: relative;
+
+         .selected-lang__wrapper {
+            display: flex;
+            cursor: pointer;
+            padding: 12px;
+            border-radius: 4px;
+            transition: all 300ms ease;
+            background: var(--white);
+
+            &:hover {
+               background: var(--gray);
+            }
+
+            img {
+               width: 32px;
+               height: auto;
+            }
+         }
+
+         .langs-select__wrapper {
+            position: absolute;
+            top: 80px;
+            right: 0;
+            width: fit-content;
+            max-height: 300px;
+            overflow-y: scroll   ;
+            background: var(--white);
+            border-radius: 6px;
+            border: .5px solid var(--gray);
+            transition: all 300ms ease;
+            opacity: 0;
+            visibility: hidden;  
+
+            .single-select__item {
+               display: flex;
+               align-items: center;
+               gap: 8px;
+               padding: 12px 28px 12px 16px;
+               cursor: pointer;
+               user-select: none;
+               position: relative;
+               
+               &:hover {
+                  background: var(--gray);
+               }
+
+               img {
+                  width: 28px;
+                  height: auto;
+                  cursor: pointer;
+               }
+
+               span {
+                  text-wrap: nowrap;
+               }
+
+               .selected-lang__icon {
+                  position: absolute;
+                  top: 50%;
+                  right: 16px;
+                  transform: translateY(-50%);
+                  width: 20px;
+                  height: auto;
+               }
+            }
+
+            .current-lang__item {
+               &:hover {
+                  background: var(--white);
+               }
+            }
+         }
+
+         .langs-select__wrapper.open {
+            opacity: 1;
+            visibility: visible;
+         }
+      }
+   }
+}
