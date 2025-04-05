@@ -1,5 +1,4 @@
 import axiosClient from "@/helpers/apiClient";
-import i18next from "i18next";
 
 // get All Skins
 export function getAllSkins() {
