@@ -3,5 +3,9 @@
   "buildCommand": "next build",
   "devCommand": "next dev",
   "installCommand": "npm install",
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "rewrites": [
+    { "source": "/:locale/:path*", "destination": "/:path*" },
+    { "source": "/:path*", "destination": "/en/:path*" }
+  ]
 } 
