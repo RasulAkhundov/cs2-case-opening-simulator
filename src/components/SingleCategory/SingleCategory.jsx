@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import './singleCategory.scss';
 import SingleCrate from '../SingleCrate/SingleCrate';
 
-export default function SingleCategory({ data }) {
+export default function SingleCategory({ data, href }) {
 
   useEffect(() => {
     console.log(data);
@@ -26,6 +26,7 @@ export default function SingleCategory({ data }) {
               name={crate.name}
               image={crate.image}
               id={crate.id}
+              href={`${href}/${crate.id}`}
             />
           ))
         }

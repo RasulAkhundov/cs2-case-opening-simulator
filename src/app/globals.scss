@@ -34,7 +34,7 @@ a {
   width: 100%;
   min-height: calc(100vh - 80px);
   height: auto;
-  background: var(--blue);
+  background: #1B1B21;
   padding: 96px;
 
   .main__wrapper {
@@ -63,13 +63,18 @@ a {
   width: 100%;
   padding: 12px 20px;
   height: 44px;
-  border: 1px solid var(--gray);
+  border: 0;
   border-radius: 4px;
-  background: var(--white);
+  background: #1F1F27;
   outline: none;
   font-size: 16px;
   color: var(--black);
   font-weight: 500;
+  color: var(--white);
+
+  &::placeholder {
+    color: var(--white);
+  }
 }
 
 .loading__text {

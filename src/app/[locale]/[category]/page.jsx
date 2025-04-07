@@ -2,13 +2,12 @@ import React from 'react';
 import './style.scss';
 import { notFound } from 'next/navigation';
 import { categories } from '@/constants/categories';
-import { getAllCrates, getAllSkins } from '@/utils/fetchers';
+import { getAllCrates, getAllSkins } from '@/lib/fetchers';
 import Input from '@/components/Input';
 import SingleCategory from '@/components/SingleCategory/SingleCategory';
 
 export default async function Page({ params }) {
    const { locale, category } = params;
-   console.log(locale, category);
 
    const validCategories = categories.map((c) => c.href);
    if (!validCategories.includes(category)) return notFound();
@@ -16,11 +15,11 @@ export default async function Page({ params }) {
    let data = [];
 
    if (category === 'crates') {
-      const crates = await getAllCrates();
+      const crates = await getAllCrates(locale);
       const filteredCrates = crates.filter((crate) => crate.contains.length !== 0);
       data = filteredCrates;
    } else if (category === 'skins') {
-      const skins = await getAllSkins();
+      const skins = await getAllSkins(locale);
       const filteredSkins = skins.filter((skin) => skin.crates.length !== 0);
       data = filteredSkins;
    }
@@ -34,7 +33,10 @@ export default async function Page({ params }) {
                <Input />
             </div>
 
-            <SingleCategory data={data} />
+            <SingleCategory
+               data={data}
+               href={`${category}`}
+            />
          </div>
       </div>
    )

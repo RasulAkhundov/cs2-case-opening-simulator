@@ -1,0 +1,117 @@
+.case-opening__container {
+   .main__wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+
+      .page-title__wrapper {
+         width: 100%;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+
+         h2 {
+            color: var(--white);
+            font-size: 32px;
+         }
+      }
+
+      .contains__wrapper {
+         width: 100%;
+         display: flex;
+         flex-direction: column;
+         gap: 24px;
+
+         .title__wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+
+            h2 {
+               color: var(--white);
+               font-size: 20px;
+            }
+         }
+
+         .container__grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+
+            .skin__card {
+               width: 100%;
+               border-radius: 4px;
+               background: #1F1F27;
+               padding-bottom: 2px;
+               position: relative;
+               padding-top: 16px;
+
+               .chance__wrapper {
+                  position: absolute;
+                  top: 8px;
+                  right: 8px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 2px;
+                  align-items: flex-end;
+
+                  h5 {
+                     font-size: 10px;
+                     color: var(--gray);
+                     font-weight: 400;
+                  }
+
+                  span {
+                     font-size: 12px;
+                     color: var(--white);
+                     font-weight: bold;
+                  }
+               }
+
+               .skin-image__wrapper {
+                  padding: 8px 12px 0;
+
+                  img {
+                     width: 100%;
+                     height: auto;
+                  }
+               }
+
+               .skin__info {
+                  padding: 8px 12px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 2px;
+
+                  h3 {
+                     font-size: 14px;
+                     color: var(--gray);
+                     font-weight: 400;
+                  }
+
+                  span {
+                     font-size: 16px;
+                     color: var(--white);
+                     font-weight: bold;
+                  }
+               }
+
+               .skin__rarity {
+                  display: flex;
+                  position: absolute;
+                  bottom: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 2px;
+
+                  .line {
+                     width: 100%;
+                     height: 100%;
+                  }
+               }
+            }
+         }
+      }
+   }
+}
