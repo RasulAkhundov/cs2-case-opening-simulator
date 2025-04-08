@@ -15,12 +15,12 @@ export default function NavbarLanguageSelector() {
    const { i18n } = useTranslation();
 
    const changeLanguage = (lang) => {
-      i18n.changeLanguage(lang); // i18next dil state'i güncellenmiş olur ama esasen reload önemli
+      i18n.changeLanguage(lang);
       const pathParts = pathname.split('/');
       pathParts[1] = lang;
       const newPath = pathParts.join('/');
     
-      window.location.href = newPath; // 🔁 tam sayfa yönlendirme
+      window.location.href = newPath;
     };
 
    useEffect(() => {

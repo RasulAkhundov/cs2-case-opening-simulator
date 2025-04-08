@@ -27,7 +27,7 @@ export default async function page({ params }) {
       }
    }
 
-   // rarity'ye göre sayıları hesapla
+   // Calculate numbers for skins rarity
    const rarityCounts = {};
    contains.forEach((skin) => {
       const rarity = skin.rarity?.name;

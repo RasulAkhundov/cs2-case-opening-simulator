@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function LocaleLink({ href, children, ...props }) {
   const params = useParams();
-  const locale = params?.locale || 'en'; // fallback just in case
+  const locale = params?.locale || 'en';
 
   const fullHref = `/${locale}${href.startsWith('/') ? href : `/${href}`}`;
 

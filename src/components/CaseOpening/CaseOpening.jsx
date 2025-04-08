@@ -12,7 +12,6 @@ export default function CaseOpening({ skins, rareItem }) {
 
    console.log(displaySkins)
 
-   // Rarity bazlı kaç skin olduğunu hesapla
    const countSkinsByRarity = (skins) => {
       const counts = {};
       skins.forEach((skin) => {
@@ -24,7 +23,6 @@ export default function CaseOpening({ skins, rareItem }) {
       return counts;
    };
 
-   // Her skine dropChance ekle
    const attachDropChances = (skins) => {
       const counts = countSkinsByRarity(skins);
       return skins.map((skin) => {
@@ -38,30 +36,27 @@ export default function CaseOpening({ skins, rareItem }) {
       });
    };
 
-   // DropChance'e göre ağırlıklı seçim
    const generateWeightedSkins = (allSkins, rareItems = [], totalCount = 39) => {
       const all = [...allSkins, ...rareItems];
-      const counts = countSkinsByRarity(all); // Her rarity'den kaç tane var
-      const skinsWithChances = attachDropChances(all); // her bir skine dropChance ekleniyor
+      const counts = countSkinsByRarity(all);
+      const skinsWithChances = attachDropChances(all);
 
       const weightedPool = [];
 
       skinsWithChances.forEach((skin) => {
          const weight = parseFloat(skin.dropChance);
-         const entries = Math.floor(weight * 100); // örn: 0.276 → 27 adet
+         const entries = Math.floor(weight * 100);
          for (let i = 0; i < entries; i++) {
             weightedPool.push(skin);
          }
       });
 
-      // şimdi 39 tane rastgele seçelim
       const selected = [];
       for (let i = 0; i < totalCount; i++) {
          const randomIndex = Math.floor(Math.random() * weightedPool.length);
          selected.push(weightedPool[randomIndex]);
       }
 
-      // karıştır (sıralı olmasın)
       for (let i = selected.length - 1; i > 0; i--) {
          const j = Math.floor(Math.random() * (i + 1));
          [selected[i], selected[j]] = [selected[j], selected[i]];
@@ -70,13 +65,12 @@ export default function CaseOpening({ skins, rareItem }) {
       return selected;
    };
 
-   // Scroll için rastgele offset (biraz rastgelelik eklersin istersen)
    const getRandomNumberForTransform = () => {
       const randomNumber = Math.floor(Math.random() * (5800 - 5680 + 1)) + 5680;
       return randomNumber;
    }
 
-   // Roll fonksiyonu
+   // Roll function
    const roll = () => {
       if (rolling) return;
       setRolling(true);
